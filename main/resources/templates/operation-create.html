@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create user</title>
+</head>
+<body>
+<form action="#" th:action="@{/operation-create}" th:object="${operation}" method="post">
+    <label for="sum">Sum</label>
+    <input type="text" th:field="*{sum}" id="sum" placeholder="sum">
+    <label for="write_off">Write Off</label>
+    <input type="text" th:field="*{write_off}" id="write_off" placeholder="write_off">
+    <label for="write_on">Write On</label>
+    <input type="text" th:field="*{write_on}" id="write_on" placeholder="write_on">
+    <label for="reason">Reason</label>
+    <input type="text" th:field="*{reason}" id="reason" placeholder="reason">
+    <input type="submit" value="Create Operation">
+</form>
+</body>
+</html>

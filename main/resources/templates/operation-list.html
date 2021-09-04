@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Operations</title>
+</head>
+<body>
+<div th:switch="${operation}">
+    <h2 th:case="null">No operation found!</h2>
+    <div th:case="*">
+        <h2>Users</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Sum</th>
+                <th>   Write_off</th>
+                <th>    Write_on</th>
+                <th>    Reason</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="operation : ${operation}">
+                <td th:text="${operation.id}"></td>
+                <td th:text="${operation.sum}"></td>
+                <td th:text="${operation.write_off}"></td>
+                <td th:text="${operation.write_on}"></td>
+                <td th:text="${operation.reason}"></td>
+                <td><a th:href="@{operation-update/{id}(id=${operation.id})}">Edit</a></td>
+                <td><a th:href="@{operation-delete/{id}(id=${operation.id})}">Delete</a></td>
+                <td><a th:href="@{operation-about/{id}(id=${operation.id})}">About</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/operation-create">Create user</a></p>
+    <p><a href="/">Back</a></p>
+</div>
+</body>
+</html>
